@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental Clinic | Contact Us</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f4fbfc;color:#183b45}
+header{background:#fff;padding:20px 8%;display:flex;
+justify-content:space-between;align-items:center;box-shadow:0 2px 12px #ddd}
+.logo{font-size:25px;font-weight:bold;color:#0799a5}
+header a{color:#0799a5;text-decoration:none;font-weight:bold}
+.hero{text-align:center;padding:55px 15px;background:#dff7f7}
+.hero h1{font-size:38px;color:#087e89;margin-bottom:12px}
+.hero p{color:#526b70}
+.container{max-width:1100px;margin:40px auto;padding:20px;
+display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.card{background:white;padding:30px;border-radius:15px;
+box-shadow:0 5px 20px #dce9e9}
+h2{color:#078c98;margin-bottom:22px}
+.info{margin:22px 0;line-height:1.8}
+button,.btn{display:inline-block;border:0;padding:13px 20px;
+border-radius:8px;background:#079ba5;color:white;
+text-decoration:none;cursor:pointer;font-weight:bold;margin:5px 3px}
+button:hover,.btn:hover{background:#066d78}
+input,textarea{width:100%;padding:13px;margin:8px 0 15px;
+border:1px solid #cbdada;border-radius:7px;font-size:15px}
+textarea{height:120px;resize:vertical}
+.full{width:100%;margin:8px 0}
+.social{background:#e5f7f7;color:#087e89}
+.map{width:100%;height:250px;border:0;border-radius:10px;margin-top:15px}
+footer{text-align:center;padding:25px;background:#087e89;color:white}
+#status{margin-top:12px;color:#078c65;font-weight:bold}
+@media(max-width:700px){
+.container{grid-template-columns:1fr;margin:15px}
+.hero h1{font-size:29px}
+header{padding:15px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"> Smile Dental Care</div>
+  <a href="#contact">Contact Us</a>
+</header>
+
+<section class="hero">
+  <h1>Contact Our Dental Clinic</h1>
+  <p>Your healthy smile is our priority. Book your dental appointment today!</p>
+  <a class="btn" href="#contact">Book Appointment</a>
+</section>
+
+<div class="container" id="contact">
+
+  <div class="card">
+    <h2>Get In Touch</h2>
+
+    <div class="info">
+      <p> <b>Address:</b> Your Clinic Address, Karachi, Pakistan</p>
+      <p> <b>Phone:</b> +92 300 1234567</p>
+      <p> <b>Email:</b> info@smiledental.com</p>
+      <p> <b>Timing:</b> Monday - Saturday, 9 AM - 9 PM</p>
+    </div>
+
+    <a class="btn full" href="tel:+923001234567"> Call Now</a>
+    <a class="btn full" href="https://wa.me/923001234567"
+       target="_blank"> WhatsApp Us</a>
+    <a class="btn full" href="mailto:info@smiledental.com">
+        Send Email</a>
+
+    <a class="btn full" target="_blank"
+       href="https://www.google.com/maps/search/?api=1&query=Your+Dental+Clinic+Karachi">
+        Get Directions</a>
+
+    <h2 style="margin-top:25px">Follow Us</h2>
+    <a class="btn social" href="https://facebook.com/"
+       target="_blank">Facebook</a>
+    <a class="btn social" href="https://instagram.com/"
+       target="_blank">Instagram</a>
+  </div>
+
+  <div class="card">
+    <h2>Book Your Appointment</h2>
+
+    <form id="appointmentForm">
+      <label>Full Name</label>
+      <input id="name" type="text" placeholder="Enter your name" required>
+
+      <label>Email Address</label>
+      <input id="email" type="email" placeholder="Enter your email" required>
+
+      <label>Phone Number</label>
+      <input id="phone" type="tel" placeholder="Enter phone number" required>
+
+      <label>Select Dental Service</label>
+      <select id="service" required>
+        <option value="">Choose a service</option>
+        <option>Teeth Cleaning</option>
+        <option>Teeth Whitening</option>
+        <option>Dental Braces</option>
+        <option>Root Canal</option>
+        <option>Dental Implants</option>
+        <option>General Checkup</option>
+      </select>
+
+      <label>Appointment Date</label>
+      <input id="date" type="date" required>
+
+      <label>Your Message</label>
+      <textarea id="message" placeholder="Write your message..."></textarea>
+
+      <button class="full" type="submit">
+        Book Appointment Now
+      </button>
+      <p id="status"></p>
+    </form>
+  </div>
+
+  <div class="card" style="grid-column:1/-1">
+    <h2>Find Our Dental Clinic</h2>
+    <iframe class="map"
+      src="https://www.google.com/maps?q=Karachi%20Pakistan&output=embed"
+      loading="lazy">
+    </iframe>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Smile Dental Care. All Rights Reserved.</p>
+  <p>Creating Beautiful and Healthy Smiles </p>
+</footer>
+
+<script>
+// Set the real clinic WhatsApp number here
+const clinicWhatsApp = "923001234567";
+
+document.getElementById("date").min =
+  new Date().toISOString().split("T")[0];
+
+document.getElementById("appointmentForm")
+.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const service = document.getElementById("service").value;
+  const date = document.getElementById("date").value;
+  const message = document.getElementById("message").value.trim();
+
+  if (!name || !email || !phone || !service || !date) {
+    alert("Please complete all required fields.");
+    return;
+  }
+
+  const text =
+    "Dental Appointment Request%0A" +
+    "Name: " + encodeURIComponent(name) + "%0A" +
+    "Email: " + encodeURIComponent(email) + "%0A" +
+    "Phone: " + encodeURIComponent(phone) + "%0A" +
+    "Service: " + encodeURIComponent(service) + "%0A" +
+    "Date: " + encodeURIComponent(date) + "%0A" +
+    "Message: " + encodeURIComponent(message);
+
+  document.getElementById("status").textContent =
+    "Opening WhatsApp to send your appointment request...";
+
+  window.open(
+    "https://wa.me/" + clinicWhatsApp + "?text=" + text,
+    "_blank"
+  );
+});
+</script>
+
+</body>
+</html>
